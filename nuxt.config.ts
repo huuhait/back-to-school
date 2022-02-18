@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt3'
+import colors from './colors'
 
 export default defineNuxtConfig({
   meta: {
@@ -6,21 +7,37 @@ export default defineNuxtConfig({
   },
   buildModules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
+    'nuxt-windicss',
     '@pinia/nuxt',
   ],
   vueuse: {
     ssrHandlers: true,
   },
-  unocss: {
-    uno: true,
-    attributify: true,
-    preflight: true,
-    icons: {
-      scale: 1.2,
+  vite: {
+    css: {
+      preprocessorOptions: {
+        less: {
+          additionalData: (function() {
+            let variables = ''
+
+            for (const key in colors) {
+              const variable = `@${key}`
+              const color = colors[key]
+
+              variables += `${variable}: ${color};\n`
+            }
+
+            return variables
+          }()),
+        },
+      },
     },
-    shortcuts: [
-      ['btn', 'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
-    ],
+    server: {
+      watch: {
+        ignored: ['!**/public/**', '!**/node_modules/**'],
+      },
+      proxy: {},
+      host: '0.0.0.0',
+    },
   },
 })
