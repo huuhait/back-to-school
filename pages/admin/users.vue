@@ -26,12 +26,6 @@ const columns: TableColumn[] = [
     formatBy: Format.DateTime,
   },
   {
-    key: 'updated_at',
-    title: 'Updated At',
-    parse: ParseType.DateTime,
-    formatBy: Format.DateTime,
-  },
-  {
     key: 'action',
     align: Align.Right,
     scopedSlots: true,
@@ -81,3 +75,11 @@ const users = [
     </template>
   </Table>
 </template>
+
+<style lang="less">
+.page-admin-users {
+  .id {
+    flex: 0 0 50px;
+  }
+}
+</style>
