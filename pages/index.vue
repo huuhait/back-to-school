@@ -1,14 +1,13 @@
+<script setup lang="ts">
+import SlideShow from '~/layouts/home/SlideShow.vue'
+import SaleProducts from '~/layouts/home/SaleProducts.vue'
+import Trending from '~/layouts/home/Trending.vue'
+</script>
+
 <template>
-  <div>
-    <Logos mb-6 />
-    <Suspense>
-      <PageView />
-      <template #fallback>
-        <div op50 italic>
-          <span animate-pulse>Loading...</span>
-        </div>
-      </template>
-    </Suspense>
-    <InputEntry />
-  </div>
+  <LayoutContent class="mb-10">
+    <SlideShow />
+    <Trending />
+    <SaleProducts />
+  </LayoutContent>
 </template>
