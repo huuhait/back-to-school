@@ -1,6 +1,6 @@
 export default {
   api: {
-    url: process.env.API_URL || 'http://localhost:3001',
+    url: process.env.NODE_ENV === 'production' ? 'https://hhhyfw.sse.codesandbox.io' : 'http://localhost:3001',
   },
   page_rules: [
     {
