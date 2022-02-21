@@ -24,6 +24,9 @@ definePageMeta({
         <a href="/admin/products" class="admin-layout-menu-nav-item bold-text">
           Products
         </a>
+        <a href="/admin/slideshow" class="admin-layout-menu-nav-item bold-text">
+          Slideshow
+        </a>
       </div>
     </div>
     <div class="admin-layout-content">
