@@ -24,9 +24,9 @@ defineProps<{
           </span>
         </div>
 
-        <NuxtLink class="product-item-link" :to="`/product/${product.id}`">
+        <span class="product-item-link" :to="`/product/${product.id}`">
           XEM CHI TIẾT
-        </NuxtLink>
+        </span>
       </div>
     </NuxtLink>
   </div>

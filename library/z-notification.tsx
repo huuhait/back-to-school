@@ -42,7 +42,7 @@ const createNotification = (type: NoticeType) => {
         return () => (
           <div class={['z-notification', `z-notification-${options.placement}`]}>
             <div class={['z-notification-icon', icon_class]}>
-              <i class={`z-icon-${type}`} />
+              <i class={`z-icon-${type === 'error' ? 'close' : type}`} />
             </div>
             <div class="z-notification-content">
               {
@@ -57,7 +57,7 @@ const createNotification = (type: NoticeType) => {
               }
             </div>
             <div class="z-notification-close">
-              <i class="icon-close" onClick={close} />
+              <i class="z-icon-close" onClick={close} />
             </div>
           </div>
         )

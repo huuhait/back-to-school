@@ -2,6 +2,9 @@ import { defineNuxtConfig } from 'nuxt3'
 import colors from './colors'
 
 export default defineNuxtConfig({
+  build: {
+    transpile: ['moment'],
+  },
   meta: {
     title: 'Vitesse Nuxt 3',
   },

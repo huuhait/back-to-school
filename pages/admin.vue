@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+  middleware: ['auth-only'],
+})
+</script>
+
 <template>
   <div class="admin-layout flex h-screen w-screen overflow-hidden">
     <div class="admin-layout-menu w-74 bg-dark-500-400 h-full">
@@ -6,15 +12,18 @@
       </div>
 
       <div class="admin-layout-menu-nav">
-        <NuxtLink to="/admin/users" class="admin-layout-menu-nav-item bold-text">
+        <a href="/admin/users" class="admin-layout-menu-nav-item bold-text">
           Users
-        </NuxtLink>
-        <NuxtLink to="/admin/categories" class="admin-layout-menu-nav-item bold-text">
+        </a>
+        <a href="/admin/carts" class="admin-layout-menu-nav-item bold-text">
+          Carts
+        </a>
+        <a href="/admin/categories" class="admin-layout-menu-nav-item bold-text">
           Categories
-        </NuxtLink>
-        <NuxtLink to="/admin/products" class="admin-layout-menu-nav-item bold-text">
+        </a>
+        <a href="/admin/products" class="admin-layout-menu-nav-item bold-text">
           Products
-        </NuxtLink>
+        </a>
       </div>
     </div>
     <div class="admin-layout-content">

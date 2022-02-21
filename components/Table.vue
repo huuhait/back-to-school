@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format as formatDate, fromUnixTime, parseISO } from 'date-fns'
+import moment from 'moment'
 import type { TableColumn } from '~/types'
 import { ParseType, SortType } from '~/types'
 
@@ -196,10 +196,10 @@ function getValueByKey(key: string, item: any, parse?: ParseType, precision?: Ta
   } else if (parse === ParseType.Time || parse === ParseType.DateTime) {
     switch (typeof value) {
       case 'number':
-        value = fromUnixTime(value)
+        value = moment.unix(value)
         break
       case 'string':
-        value = parseISO(value)
+        value = moment(value)
         break
       default:
         break
@@ -290,10 +290,10 @@ onMounted(() => {
             />
             <span v-else class="table-row-col-content">
               <template v-if="column.formatBy == 'datetime'">
-                {{ formatDate(getValueByKey(column.key, item, column.parse), "yyyy-MM-dd HH:mm:ss") }}
+                {{ getValueByKey(column.key, item, column.parse).format("YYYY-MM-DD hh:mm:ss") }}
               </template>
               <template v-else-if="column.formatBy == 'time'">
-                {{ formatDate(getValueByKey(column.key, item, column.parse), "HH:mm:ss") }}
+                {{ getValueByKey(column.key, item, column.parse).format("hh:mm:ss") }}
               </template>
               <template v-else-if="column.toUpper">
                 {{ getValueByKey(column.key, item, column.parse).toUpperCase() }}

@@ -2,7 +2,6 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "jsx": "preserve",
-    "lib": ["WebWorker", "DOM"],
     "strict": true,
     "noImplicitAny": false,
     "importHelpers": true,
@@ -11,13 +10,8 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "declaration": true,
-    "declarationMap": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "alwaysStrict": true,
     "isolatedModules": true,
+    "useDefineForClassFields": true,
     "types": [
       "@pinia/nuxt",
       "vite/client",

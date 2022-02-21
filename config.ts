@@ -1,6 +1,6 @@
 export default {
   api: {
-    url: '',
+    url: 'http://localhost:3001',
   },
   page_rules: [
     {

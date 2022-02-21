@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ShoppingBagIcon } from '@heroicons/vue/outline'
+import { ShoppingBagIcon } from '@heroicons/vue/outline/index.js'
+import { usePublicStore } from '~/stores/public'
+import { useUserStore } from '~/stores/user'
 
 const router = useRouter()
 const search = useState('search', () => '')
+const publicStore = usePublicStore()
+const userStore = useUserStore()
 
 const SearchProducts = () => {
   router.push({
@@ -27,9 +31,26 @@ const SearchProducts = () => {
             <Icon type="search" />
           </Button>
         </form>
-        <div class="header-cart">
-          <ShoppingBagIcon class="w-10 h-10" />
-          <span class="header-cart-info">8</span>
+        <div class="flex items-center">
+          <NuxtLink to="/gio-hang" class="header-cart">
+            <ShoppingBagIcon class="w-10 h-10" />
+            <span class="header-cart-info">
+              {{ publicStore.carts.length }}
+            </span>
+          </NuxtLink>
+          <template v-if="userStore.email">
+            <span class="ml-4 bg-gray-100 rounded px-2 py-1">
+              {{ userStore.email }}
+            </span>
+          </template>
+          <template v-else>
+            <NuxtLink to="/login" class="ml-4 bg-gray-100 rounded px-2 py-1">
+              Login
+            </NuxtLink>
+            <NuxtLink to="/register" class="ml-4 bg-gray-100 rounded px-2 py-1">
+              Register
+            </NuxtLink>
+          </template>
         </div>
       </Container>
     </div>

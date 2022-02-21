@@ -3,32 +3,38 @@
     {
       "id": 1,
       "email": "abc@gmail.com",
-      "username": "test1@",
-      "password": "abcxyz",
+      "password": "$2a$12$V/KsZHD5Xpc66SCsgtyR8eJt1XwrmStoHG/LoQrDl5LkaJtzxeaOu",
       "fullname": "Nguyễn Văn A",
       "address": "My Dinh, Nam Tu Liem, Ha Noi",
       "created_at": "2022-02-18T04:07:52.391Z",
-      "updated_at": "2022-02-18T04:07:52.391Z"
+      "updated_at": "2022-02-20T00:16:40.355Z"
     },
     {
       "id": 2,
-      "email": "abc@gmail.com",
+      "email": "abcx@gmail.com",
       "fullname": "Nguyễn Văn B",
-      "username": "test2@",
-      "password": "abcxyz",
+      "password": "$2a$12$V/KsZHD5Xpc66SCsgtyR8eJt1XwrmStoHG/LoQrDl5LkaJtzxeaOu",
       "address": "My Dinh, Nam Tu Liem, Ha Noi",
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
       "id": 3,
-      "email": "abc@gmail.com",
+      "email": "abcy@gmail.com",
       "fullname": "Nguyễn Văn C",
-      "username": "test3@",
-      "password": "abcxyz",
+      "password": "$2a$12$V/KsZHD5Xpc66SCsgtyR8eJt1XwrmStoHG/LoQrDl5LkaJtzxeaOu",
       "address": "My Dinh, Nam Tu Liem, Ha Noi",
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
+    },
+    {
+      "email": "huuhadz2k@gmail.com",
+      "password": "$2a$10$yrznMDXHJUxmWw/jsS9oOOyFGfJ7LGXmw1sTdb3mb60uLHQFsTNOe",
+      "fullname": "Hà Hữu",
+      "address": "Hoa Dong Thuy Nguyen",
+      "created_at": "2022-02-18T04:07:52.391Z",
+      "updated_at": "2022-02-18T04:07:52.391Z",
+      "id": 4
     }
   ],
   "categories": [
@@ -48,37 +54,43 @@
   "carts": [
     {
       "id": 1,
-      "user_id": 1,
+      "userId": 1,
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
       "id": 2,
-      "user_id": 3,
+      "userId": 3,
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
       "id": 3,
-      "user_id": 3,
+      "userId": 3,
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
+    },
+    {
+      "userId": 1,
+      "created_at": "2022-02-20T21:49:13.077Z",
+      "updated_at": "2022-02-20T21:49:13.077Z",
+      "id": 4
     }
   ],
   "products_cart": [
     {
       "id": 1,
-      "cart_id": 1,
-      "product_id": 1,
-      "quantity": 2,
-      "price": 25000,
-      "created_at": "2022-02-18T04:07:52.391Z",
-      "updated_at": "2022-02-18T04:07:52.391Z"
+      "cartId": 1,
+      "productId": 20,
+      "quantity": 8,
+      "price": 38500,
+      "created_at": "2022-02-20T00:12:25.054Z",
+      "updated_at": "2022-02-20T00:12:25.054Z"
     },
     {
       "id": 2,
-      "cart_id": 1,
-      "product_id": 2,
+      "cartId": 1,
+      "productId": 2,
       "quantity": 1,
       "price": 25000,
       "created_at": "2022-02-18T04:07:52.391Z",
@@ -86,8 +98,8 @@
     },
     {
       "id": 3,
-      "cart_id": 2,
-      "product_id": 3,
+      "cartId": 2,
+      "productId": 3,
       "quantity": 1,
       "price": 25000,
       "created_at": "2022-02-18T04:07:52.391Z",
@@ -95,8 +107,8 @@
     },
     {
       "id": 4,
-      "cart_id": 3,
-      "product_id": 4,
+      "cartId": 3,
+      "productId": 4,
       "quantity": 1,
       "price": 25000,
       "created_at": "2022-02-18T04:07:52.391Z",
@@ -104,8 +116,8 @@
     },
     {
       "id": 5,
-      "cart_id": 3,
-      "product_id": 5,
+      "cartId": 3,
+      "productId": 5,
       "quantity": 4,
       "price": 25000,
       "created_at": "2022-02-18T04:07:52.391Z",
@@ -113,29 +125,38 @@
     },
     {
       "id": 6,
-      "cart_id": 3,
-      "product_id": 1,
+      "cartId": 3,
+      "productId": 1,
       "quantity": 10,
       "price": 25000,
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
+    },
+    {
+      "cartId": 4,
+      "productId": 2,
+      "quantity": 1,
+      "price": "19250",
+      "created_at": "2022-02-20T21:49:13.109Z",
+      "updated_at": "2022-02-20T21:49:13.109Z",
+      "id": 7
     }
   ],
   "products": [
     {
-      "id": 1,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "Product 1",
       "price": 25000,
       "discount": 0.23,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      "image": "http://mauweb.monamedia.net/donghohaitrieu/wp-content/uploads/2019/07/product-16.jpg",
+      "image": "http://res.cloudinary.com/dqtnuqde5/image/upload/v1645408387/js/j2nvwsk7yderljvnjibd.png",
       "created_at": "2022-02-18T04:07:52.391Z",
-      "updated_at": "2022-02-18T04:07:52.391Z"
+      "updated_at": "2022-02-21T01:53:09.563Z",
+      "id": 1
     },
     {
       "id": 2,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "Product 2",
       "price": 25000,
       "discount": 0.23,
@@ -145,19 +166,19 @@
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
-      "id": 3,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "Product 3",
       "price": 25000,
       "discount": 0.23,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      "image": "http://mauweb.monamedia.net/donghohaitrieu/wp-content/uploads/2019/07/product-16.jpg",
+      "image": "http://res.cloudinary.com/demo/image/upload/v1645407985/docs_uploading_example/product-02_tnvden.png",
       "created_at": "2022-02-18T04:07:52.391Z",
-      "updated_at": "2022-02-18T04:07:52.391Z"
+      "updated_at": "2022-02-21T01:46:27.300Z",
+      "id": 3
     },
     {
       "id": 4,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "groduct 4",
       "price": 25000,
       "discount": 0.23,
@@ -168,7 +189,7 @@
     },
     {
       "id": 5,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "Product 5",
       "price": 25000,
       "discount": 0.23,
@@ -179,7 +200,7 @@
     },
     {
       "id": 6,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Product 6",
       "price": 25000,
       "discount": 0.23,
@@ -190,7 +211,7 @@
     },
     {
       "id": 7,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "eroduct 7",
       "price": 25000,
       "discount": 0.23,
@@ -201,7 +222,7 @@
     },
     {
       "id": 8,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "droduct 8",
       "price": 25000,
       "discount": 0.23,
@@ -212,7 +233,7 @@
     },
     {
       "id": 9,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "Product 9",
       "price": 25000,
       "discount": 0.23,
@@ -223,7 +244,7 @@
     },
     {
       "id": 10,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Product 10",
       "price": 25000,
       "discount": 0.23,
@@ -234,7 +255,7 @@
     },
     {
       "id": 11,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "croduct 11",
       "price": 25000,
       "discount": 0.23,
@@ -245,7 +266,7 @@
     },
     {
       "id": 12,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "broduct 12",
       "price": 25000,
       "discount": 0.23,
@@ -256,7 +277,7 @@
     },
     {
       "id": 13,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Product 13",
       "price": 25000,
       "discount": 0.23,
@@ -267,7 +288,7 @@
     },
     {
       "id": 14,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "aroduct 14",
       "price": 2500,
       "discount": 0.23,
@@ -278,7 +299,7 @@
     },
     {
       "id": 15,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Product 15",
       "price": 25000,
       "discount": 0.23,
@@ -289,7 +310,7 @@
     },
     {
       "id": 16,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Product 16",
       "price": 5000,
       "discount": 0.23,
@@ -299,19 +320,8 @@
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
-      "id": 17,
-      "category_id": 1,
-      "name": "Product 17",
-      "price": 25000,
-      "discount": 0.23,
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-      "image": "http://mauweb.monamedia.net/donghohaitrieu/wp-content/uploads/2019/07/product-16.jpg",
-      "created_at": "2022-02-18T04:07:52.391Z",
-      "updated_at": "2022-02-18T04:07:52.391Z"
-    },
-    {
       "id": 18,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "Product 18",
       "price": 2000,
       "discount": 0.23,
@@ -322,7 +332,7 @@
     },
     {
       "id": 19,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Product 19",
       "price": 2500,
       "discount": 0.23,
@@ -335,39 +345,35 @@
       "name": "Product moi",
       "price": 50000,
       "discount": 0.23,
-      "category_id": 2,
+      "categoryId": 2,
       "description": "adsfasd",
-      "image": "C:\\fakepath\\6a072bc0cb4c06125f5d.jpg",
-      "created_at": "Tue Feb 01 2022 12:57:36",
-      "updated_at": "Tue Feb 01 2022 12:57:36",
+      "image": "http://mauweb.monamedia.net/donghohaitrieu/wp-content/uploads/2019/07/product-16.jpg",
+      "created_at": "2022-02-18T04:07:52.391Z",
+      "updated_at": "2022-02-18T04:07:52.391Z",
       "id": 20
     }
   ],
   "slideshow": [
     {
       "id": 1,
-      "product_id": 1,
       "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
       "id": 2,
-      "product_id": 2,
       "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
       "id": 3,
-      "product_id": 3,
       "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"
     },
     {
       "id": 4,
-      "product_id": 4,
       "image": "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
       "created_at": "2022-02-18T04:07:52.391Z",
       "updated_at": "2022-02-18T04:07:52.391Z"

@@ -1,13 +1,11 @@
 <script setup lang="ts">
-const products = useState('products', () => ([
-  {
-    id: 1,
-    name: 'Đồng hồ giá rẻ 2k 1 cái',
-    image: 'http://mauweb.monamedia.net/donghohaitrieu/wp-content/uploads/2019/07/product-01-300x300.png',
-    price: '150000',
-    discount: 0.2,
-  },
-]))
+import type { Product } from '~/types'
+
+const { data: products } = useAsyncData('fetch_same_products', async() => {
+  const { data } = await useBetterFetch<Product[]>('/products')
+
+  return data
+})
 </script>
 
 <template>
@@ -23,7 +21,7 @@ const products = useState('products', () => ([
           loop: true,
         }"
       >
-        <SwiperSlide v-for="(product, index) in [...products,...products,...products,...products]" :key="index">
+        <SwiperSlide v-for="(product, index) in products" :key="index">
           <ProductItem class="flex-1" :product="product" />
         </SwiperSlide>
       </Swiper>

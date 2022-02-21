@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import '@/assets/styles/index.less'
 import config from './config'
+import { usePublicStore } from '~/stores/public'
 
 const route = useRoute()
+const publicStore = usePublicStore()
 const pathName = computed(() => {
   const path = route.matched[route.matched.length - 1].path
   const path_splited = path.substring(1).split('/')
@@ -25,6 +27,12 @@ const pageRule = computed(() => {
   })
   if (!page_rule) page_rule = config.page_rules.find(p => p.name === '*')
   return page_rule
+})
+useAsyncData('fetch_data', async() => {
+  await Promise.all([
+    publicStore.FetchCategories(),
+    publicStore.FetchProducts(),
+  ])
 })
 </script>
 
