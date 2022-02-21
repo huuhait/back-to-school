@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxi build",
+    "build": "NODE_ENV=production nuxi build",
     "dev": "nuxi dev",
-    "start": "node .output/server/index.mjs",
+    "start": "NODE_ENV=production node .output/server/index.mjs",
     "backend": "json-server-auth --watch db.json --port 3001"
   },
   "dependencies": {
