@@ -1,7 +1,8 @@
 <script setup lang="ts">
 defineProps<{
   placeholder?: string
-  modelValue: string
+  modelValue: string | number
+  type?: string
 }>()
 
 const emit = defineEmits(['update:modelValue'])
@@ -9,12 +10,14 @@ const emit = defineEmits(['update:modelValue'])
 
 <template>
   <div class="input">
-    <input :placeholder="placeholder" @input="($event) => emit('update:modelValue', ($event?.target as any).value)">
+    <input :placeholder="placeholder" :value="modelValue" :type="type" @input="($event) => emit('update:modelValue', ($event?.target as any).value)">
   </div>
 </template>
 
 <style lang="less">
 .input {
+  line-height: 35px;
+
   input {
     width: 100%;
     height: 100%;

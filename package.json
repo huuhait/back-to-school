@@ -4,14 +4,16 @@
     "build": "nuxi build",
     "dev": "nuxi dev",
     "start": "node .output/server/index.mjs",
-    "backend": "json-server --watch db.json --port 3001"
+    "backend": "json-server-auth --watch db.json --port 3001"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.5",
-    "date-fns": "^2.28.0",
+    "js-cookie": "^3.0.1",
     "json-server": "^0.17.0",
     "mitt": "^3.0.0",
+    "moment": "^2.29.1",
     "pinia": "^2.0.9",
+    "shvl": "^2.0.3",
     "swiper": "^8.0.6",
     "vue-class-component": "^8.0.0-rc.1",
     "vue-property-decorator": "^10.0.0-rc.3"
@@ -23,10 +25,11 @@
     "@pinia/nuxt": "^0.1.8",
     "@vueuse/nuxt": "^7.4.2",
     "eslint": "^8.5.0",
+    "json-server-auth": "^2.1.0",
     "less": "4.1.2",
     "less-loader": "10.2.0",
     "nuxt-windicss": "^2.2.4",
-    "nuxt3": "^3.0.0-27415326.3c563fa",
+    "nuxt3": "^3.0.0-27420403.16e2a54",
     "typescript": "^4.5.4"
   },
   "pnpm": {

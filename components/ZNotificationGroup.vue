@@ -58,7 +58,7 @@ function appendNewNotification(notification: any) {
   margin-bottom: 16px;
   overflow: hidden;
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(140, 162, 214, 0.1);
+  box-shadow: 0 4px 12px #45566d6e;
   transition: all 0.3s;
   &-icon {
     margin-right: 12px;

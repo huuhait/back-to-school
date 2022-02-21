@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AtSymbolIcon, LocationMarkerIcon, PhoneIcon } from '@heroicons/vue/outline'
+import { AtSymbolIcon, LocationMarkerIcon, PhoneIcon } from '@heroicons/vue/outline/index.js'
 </script>
 
 <template>

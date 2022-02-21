@@ -1,7 +1,7 @@
 import config from '~/config'
 import ZNotification from '~/library/z-notification'
 // import { UserState } from '~/types'
-// import { useUserStore } from '~/stores/user'
+import { useUserStore } from '~/stores/user'
 // import { usePublicStore } from '~/stores/public'
 
 function jsonToParam(json: { [key: string]: any }, first_str = '?') {
@@ -16,37 +16,20 @@ function jsonToParam(json: { [key: string]: any }, first_str = '?') {
 }
 
 const formatError = (error: any) => {
+  const userStore = useUserStore()
+
+  if (error.response.status === 401) {
+    userStore.token = ''
+  }
+
   if (process.server) return
 
   const response = error.response
-  const errors: string[] = response.data.errors
-  // const userStore = useUserStore()
-  // const router = useRouter()
 
-  // if (userStore.state === UserState.Active && response.status === 401 && !response.data?.errors?.includes('authz.invalid_permission')) {
-  //   router.push('/')
-  //   userStore.auth_error()
-  // }
-
-  for (const error of errors) {
-    switch (error) {
-      default:
-        ZNotification.error({
-          title: 'Error',
-          description: error,
-        })
-        break
-    }
-  }
-}
-
-const csrf_headers = () => {
-  if (process.server) return {}
-
-  const csrf_token = localStorage.getItem('csrf_token')
-  const headers = { 'X-CSRF-Token': csrf_token }
-
-  return csrf_token ? headers : {}
+  ZNotification.error({
+    title: 'Error',
+    description: response.data,
+  })
 }
 
 interface BetterFetchBody {
@@ -68,6 +51,7 @@ export const useBetterFetch = async <T>(url: string, options?: BetterFetchOption
   try {
     // const publicStore = usePublicStore()
     // const headers = publicStore.headers
+    const userStore = useUserStore()
     const headers = {}
 
     let params = ''
@@ -80,10 +64,9 @@ export const useBetterFetch = async <T>(url: string, options?: BetterFetchOption
       body: JSON.stringify(options?.body),
       headers: {
         ...options?.headers,
-        ...csrf_headers,
         ...headers,
         'Content-Type': 'application/json',
-        'host': 'test.zsmartex.tech',
+        'Authorization': `Bearer ${userStore.token}`,
       },
     })
 
