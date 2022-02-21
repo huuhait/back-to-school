@@ -1,12 +1,12 @@
 <template>
   <Container class="trending-watch flex">
-    <NuxtLink to="/" class="trending-watch-item relative flex-1 mr-4 nam">
+    <NuxtLink to="/danh-muc/do-ho-nam" class="trending-watch-item relative flex-1 mr-4 nam">
       <div class="trending-watch-title bold-text">
         ĐỒNG HỒ NAM
       </div>
       <div class="bg" />
     </NuxtLink>
-    <NuxtLink to="/" class="trending-watch-item relative flex-1 ml-4 nu">
+    <NuxtLink to="/danh-muc/do-ho-nu" class="trending-watch-item relative flex-1 ml-4 nu">
       <div class="trending-watch-title bold-text">
         ĐỒNG HỒ NỮ
       </div>
