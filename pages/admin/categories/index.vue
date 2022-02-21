@@ -2,6 +2,8 @@
 import type { Category, TableColumn } from '~/types'
 import { Align, Format, ParseType } from '~/types'
 import ZNotification from '~/library/z-notification'
+import ZEventBus from '~/library/ZEventBus'
+import { usePublicStore } from '~/stores/public'
 
 const columns: TableColumn[] = [
   {
@@ -24,6 +26,25 @@ const columns: TableColumn[] = [
     scopedSlots: true,
   },
 ]
+
+const publicStore = usePublicStore()
+
+onMounted(() => {
+  publicStore.admin_action_headers = [
+    {
+      name: 'Create',
+      callback: () => {
+        const router = useRouter()
+
+        router.push('/admin/categories/create')
+      },
+    },
+  ]
+})
+
+onBeforeUnmount(() => {
+  publicStore.admin_action_headers = []
+})
 
 const { data: categories } = useAsyncData('fetch_categories', async() => {
   const { data } = await useBetterFetch<Category[]>('/660/categories')

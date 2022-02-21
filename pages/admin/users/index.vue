@@ -2,6 +2,7 @@
 import type { TableColumn, User } from '~/types'
 import { Align, Format, ParseType } from '~/types'
 import ZNotification from '~/library/z-notification'
+import { usePublicStore } from '~~/stores/public'
 
 const columns: TableColumn[] = [
   {
@@ -32,6 +33,25 @@ const columns: TableColumn[] = [
     scopedSlots: true,
   },
 ]
+
+const publicStore = usePublicStore()
+
+onMounted(() => {
+  publicStore.admin_action_headers = [
+    {
+      name: 'Create',
+      callback: () => {
+        const router = useRouter()
+
+        router.push('/admin/users/create')
+      },
+    },
+  ]
+})
+
+onBeforeUnmount(() => {
+  publicStore.admin_action_headers = []
+})
 
 const { data: users } = useAsyncData('fetch_users', async() => {
   const { data } = await useBetterFetch<User[]>('/660/users')

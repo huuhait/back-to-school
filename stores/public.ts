@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { useUserStore } from './user'
-import type { Cart, CartStore, Category, Product, User } from '~/types'
+import type { ActionHeader, Cart, CartStore, Category, Product, SlideShow, User } from '~/types'
 import ZNotification from '~/library/z-notification'
 
 export const usePublicStore = defineStore({
@@ -9,13 +9,21 @@ export const usePublicStore = defineStore({
     return {
       first_route: useState('first_route', () => false),
       carts: useState('store_carts', () => [] as CartStore[]),
+      slideshow: useState('slideshow', () => [] as SlideShow[]),
       categories: useState('categories', () => [] as Category[]),
       products: useState('products', () => [] as Product[]),
+      admin_action_headers: useState('action_headers', () => ([] as ActionHeader[])),
     }
   },
   actions: {
     async FetchSlideShow() {
+      try {
+        const { data } = await useBetterFetch<SlideShow[]>('/slideshow')
 
+        this.slideshow = data
+      } catch (error) {
+        return error
+      }
     },
     async FetchCategories() {
       try {

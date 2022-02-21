@@ -2,6 +2,7 @@
 import type { Product, TableColumn } from '~/types'
 import { Align, Format, ParseType } from '~/types'
 import ZNotification from '~/library/z-notification'
+import { usePublicStore } from '~/stores/public'
 
 const columns: TableColumn[] = [
   {
@@ -34,6 +35,25 @@ const columns: TableColumn[] = [
     scopedSlots: true,
   },
 ]
+
+const publicStore = usePublicStore()
+
+onMounted(() => {
+  publicStore.admin_action_headers = [
+    {
+      name: 'Create',
+      callback: () => {
+        const router = useRouter()
+
+        router.push('/admin/products/create')
+      },
+    },
+  ]
+})
+
+onBeforeUnmount(() => {
+  publicStore.admin_action_headers = []
+})
 
 const { data: products } = useAsyncData('fetch_products', async() => {
   const { data } = await useBetterFetch<Product[]>('/660/products')

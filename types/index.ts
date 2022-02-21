@@ -82,6 +82,13 @@ export type User = {
   carts?: Cart[]
 }
 
+export type SlideShow = {
+  id: number
+  image: string
+  created_at: Date
+  updated_at: Date
+}
+
 export type Cart = {
   id: number
   userId: number
@@ -124,6 +131,11 @@ export type Product = {
 export interface CartStore {
   productId: number
   quantity: number
+}
+
+export type ActionHeader = {
+  name: string
+  callback: () => void
 }
 
 export type StorageLike = Pick<Storage, 'getItem' | 'removeItem' | 'setItem'>
