@@ -4,17 +4,13 @@ import { usePublicStore } from '~/stores/public'
 import ZNotification from '~/library/z-notification'
 
 const publicStore = usePublicStore()
-const route = useRoute()
-const { data: product } = useAsyncData('fetch_product', async() => {
-  const { data } = await useBetterFetch<Product>(`/660/products/${route.params.id}`)
+const router = useRouter()
+const product = useState('create_product', () => ({} as Product))
 
-  return data
-})
-
-const update_product = () => {
+const create_product = () => {
   try {
-    useBetterFetch(`/660/products/${route.params.id}`, {
-      method: 'PUT',
+    useBetterFetch('/660/products', {
+      method: 'POST',
       body: {
         categoryId: product.value.categoryId,
         name: product.value.name,
@@ -22,7 +18,7 @@ const update_product = () => {
         discount: product.value.discount,
         description: product.value.description,
         image: product.value.image,
-        created_at: product.value.created_at,
+        created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },
     })
@@ -30,6 +26,7 @@ const update_product = () => {
       title: 'Success',
       description: 'Update product successfully',
     })
+    router.push('/admin/products')
   } catch (error) {
     return error
   }
@@ -62,7 +59,7 @@ const onImageUpload = async(event: any) => {
       </div>
     </div>
 
-    <form class="grid px-4 grid-cols-4 gap-8" @submit.prevent="update_product">
+    <form class="grid px-4 grid-cols-4 gap-8" @submit.prevent="create_product">
       <FormRow>
         <FormRowLabel>
           Name
@@ -114,7 +111,7 @@ const onImageUpload = async(event: any) => {
 
       <FormRow class="col-span-4 flex justify-end mt-4">
         <Button class="bold-text rounded px-3 py-1" type="submit">
-          Update
+          Create
         </Button>
       </FormRow>
     </form>

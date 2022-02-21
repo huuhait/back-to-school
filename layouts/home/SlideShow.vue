@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { usePublicStore } from '~/stores/public'
+
+const publicStore = usePublicStore()
+</script>
+
 <template>
   <Swiper
     class="slide-show"
@@ -6,11 +12,8 @@
       loop: true,
     }"
   >
-    <SwiperSlide>
-      <img src="~/assets/img/slide-bg-1.jpg">
-    </SwiperSlide>
-    <SwiperSlide>
-      <img src="~/assets/img/slide-bg-1.jpg">
+    <SwiperSlide v-for="slide in publicStore.slideshow" :key="slide.id">
+      <img :src="slide.image">
     </SwiperSlide>
   </Swiper>
 </template>

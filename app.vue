@@ -30,6 +30,7 @@ const pageRule = computed(() => {
 })
 useAsyncData('fetch_data', async() => {
   await Promise.all([
+    publicStore.FetchSlideShow(),
     publicStore.FetchCategories(),
     publicStore.FetchProducts(),
   ])

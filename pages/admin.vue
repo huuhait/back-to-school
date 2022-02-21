@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { usePublicStore } from '~/stores/public'
+
 definePageMeta({
   middleware: ['auth-only'],
 })
+
+const publicStore = usePublicStore()
 </script>
 
 <template>
@@ -29,8 +33,15 @@ definePageMeta({
         </a>
       </div>
     </div>
-    <div class="admin-layout-content">
-      <NuxtNestedPage />
+    <div class="w-full">
+      <div class="flex justify-end h-16 items-center">
+        <Button v-for="(action, index) in publicStore.admin_action_headers" :key="index" class="h-10 mr-8 px-4 py-2 rounded" @click="action.callback">
+          {{ action.name }}
+        </Button>
+      </div>
+      <div class="admin-layout-content">
+        <NuxtNestedPage />
+      </div>
     </div>
   </div>
 </template>
